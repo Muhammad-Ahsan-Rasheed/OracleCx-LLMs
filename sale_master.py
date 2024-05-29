@@ -1,7 +1,7 @@
 import openai
 
 # OpenAI API Key
-openai.api_key = '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'
+openai.api_key = ''
 
 table = """### Oracle 11gR2 SQL tables, with their properties:
            #
