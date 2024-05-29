@@ -2,7 +2,7 @@ from flask import url_for, redirect
 import openai
 
 # OpenAI API Key
-openai.api_key = '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'
+openai.api_key = ''
 
 table = """### Table_Name(Column_Name: sample Column_Value, Column_Name: sample Column_Value)
            # 
