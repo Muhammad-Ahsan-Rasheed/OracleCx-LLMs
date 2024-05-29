@@ -1,0 +1,121 @@
+﻿prompt,completion
+Total Sale value,"select Sum(Sale_value) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved');"
+Total Pre booked,select count(*) from chatgpt_sale_master where  unit_status IN ('Booked');
+Total Reserved,select count(*) from chatgpt_sale_master where  unit_status IN ('Reserved');
+Total sale value of the Tower A,"select Sum(Sale_value) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and buidling = 'TOWER A';"
+Total sale value of the Tower B,"select Sum(Sale_value) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and buidling = 'TOWER B';"
+Last 10 days Total sale value,"select Sum(Sale_value) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between sysdate -10  and sysdate ;"
+Last month Total sale value,"select Sum(Sale_value) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1)) ;"
+Specifc month Total sale value (Example Aug 2022),"select sum(sale_value) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between '01-AUG-2022' and last_day('01-AUG-2022') ;"
+Last 10 days Average sale value,"select Sum(Sale_value)/10  from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between sysdate -10  and sysdate ;"
+Last month Average sale value,"select Sum(Sale_value)/round(last_day(add_months(sysdate,-1)) - to_date('01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY'),'DD-MON-YYYY'))
+from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1)) ;
+"
+Specifc month Average sale value,"select sum(sale_value)/(last_day('01-AUG-2022') - to_date('01-AUG-2022','DD-MON-YYYY')) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between '01-AUG-2022' and last_day('01-AUG-2022') ;"
+Last 10 days Total Pre booked,select Count(*) from chatgpt_sale_master where  unit_status IN ('Booked') and booking_date between sysdate -10  and sysdate ;
+Last month Total Pre booked,"select Count(*) from chatgpt_sale_master where  unit_status IN ('Booked') and booking_date between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1)) ;"
+Specifc month Total Pre booked,select count(*) from chatgpt_sale_master where  unit_status IN ('Booked') and booking_date between '01-AUG-2022' and last_day('01-AUG-2022') ;
+Last 10 days Average Pre booked,select count(*)/10  from chatgpt_sale_master where  unit_status IN ('Booked') and booking_date between sysdate -10  and sysdate ;
+Last month Average Pre booked,"select count(*)/round(last_day(add_months(sysdate,-1)) - to_date('01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY'),'DD-MON-YYYY'))
+from chatgpt_sale_master where  unit_status IN ('Booked') and booking_date between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1)) ;"
+Specifc month Average Pre booked,"select count(*)/(last_day('01-AUG-2022') - to_date('01-AUG-2022','DD-MON-YYYY')) from chatgpt_sale_master where  unit_status IN ('Booked') and booking_date between '01-AUG-2022' and last_day('01-AUG-2022') ;"
+Last 10 days Total Reserved,select Count(*) from chatgpt_sale_master where  unit_status IN ('Reserved') and booking_date between sysdate -10  and sysdate ;
+Last month Total Reserved,"select Count(*) from chatgpt_sale_master where  unit_status IN ('Reserved') and booking_date between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1)) ;"
+Specifc month Total Reserved,select count(*) from chatgpt_sale_master where  unit_status IN ('Reserved') and booking_date between '01-AUG-2022' and last_day('01-AUG-2022') ;
+Last 10 days Average Reserved,select count(*)/10  from chatgpt_sale_master where  unit_status IN ('Reserved') and booking_date between sysdate -10  and sysdate ;
+Last month Average Reserved,"select count(*)/round(last_day(add_months(sysdate,-1)) - to_date('01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY'),'DD-MON-YYYY'))
+from chatgpt_sale_master where  unit_status IN ('Reserved') and booking_date between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1)) ;"
+Specifc month Average Reserved,"select count(*)/(last_day('01-AUG-2022') - to_date('01-AUG-2022','DD-MON-YYYY')) from chatgpt_sale_master where  unit_status IN ('Reserved') and booking_date between '01-AUG-2022' and last_day('01-AUG-2022') ;"
+Last 10 days Total sale value of the building,"select Sum(Sale_value) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between sysdate -10  and sysdate and buidling = 'TOWER A';"
+Last month Total sale value of the building,"select Sum(Sale_value) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1))  and buidling = 'TOWER A';"
+Specifc month Total sale value of the building,"select sum(sale_value) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between '01-AUG-2022' and last_day('01-AUG-2022')  and buidling = 'TOWER A';"
+Last 10 days Average sale value of the building,"select Sum(Sale_value)/10  from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between sysdate -10  and sysdate  and buidling = 'TOWER A';"
+Last month Average sale value of the building,"select Sum(Sale_value)/round(last_day(add_months(sysdate,-1)) - to_date('01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY'),'DD-MON-YYYY'))
+from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1))  and buidling = 'TOWER A';"
+Specifc month Average sale value of the building,"select sum(sale_value)/(last_day('01-AUG-2022') - to_date('01-AUG-2022','DD-MON-YYYY')) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') and booking_date between '01-AUG-2022' and last_day('01-AUG-2022')  and buidling = 'TOWER A';"
+What is the sale value of the unit,select sale_value from chatgpt_sale_master where unit_code = 'MGT1-FL5-510'
+what is the booked date of the unit,select booking_date from chatgpt_sale_master where unit_code = 'MGT1-FL5-510'
+Who is the agent sold the unit,select agent_name from chatgpt_sale_master where unit_code = 'MGT1-FL5-510'
+Who is the broker sold the unit,select broker_name from chatgpt_sale_master where unit_code = 'MGT1-FL5-510'
+Who is the customer brought the unit,select customer_name from chatgpt_sale_master where unit_code = 'MGT1-FL5-510'
+Top 5 agent who sold the units in last 10 days,"select * from (select agent_name , count(*)  from chatgpt_sale_master where agent_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between sysdate -10  and sysdate
+group by agent_name order by count(*) desc ) where ROWNUM <= 5;"
+Top 5 agent who sold the units in last Month,"select * from (select agent_name , count(*)  from chatgpt_sale_master where agent_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1))
+group by agent_name order by count(*) desc ) where ROWNUM <= 5;"
+Top 5 agent who sold the units in Specifc Month,"select * from (select agent_name , count(*)  from chatgpt_sale_master where agent_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-AUG-2022' and last_day('01-AUG-2022') 
+group by agent_name order by count(*) desc ) where ROWNUM <= 5;"
+Top 5 Broker who sold the units in last 10 days,"select * from (select broker_name , count(*)  from chatgpt_sale_master where broker_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between sysdate -10  and sysdate
+group by broker_name order by count(*) desc ) where ROWNUM <= 5;"
+Top 5 Broker who sold the units in last Month,"select * from (select broker_name , count(*)  from chatgpt_sale_master where broker_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1))
+group by broker_name order by count(*) desc ) where ROWNUM <= 5;"
+Top 5 Broker who sold the units in Specifc Month,"select * from (select broker_name , count(*)  from chatgpt_sale_master where broker_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-AUG-2022' and last_day('01-AUG-2022') 
+group by broker_name order by count(*) desc ) where ROWNUM <= 5;"
+Top 5 agent who sold the units in last 10 days  by sale value,"select * from (select agent_name , sum(sale_value)  from chatgpt_sale_master where agent_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between sysdate -10  and sysdate
+group by agent_name order by sum(sale_value) desc ) where ROWNUM <= 5;"
+Top 5 agent who sold the units in last Month by sale value,"select * from (select agent_name , Sum(Sale_value)  from chatgpt_sale_master where agent_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1))
+group by agent_name order by Sum(Sale_value) desc ) where ROWNUM <= 5;"
+Top 5 agent who sold the units in Specifc Month by sale value,"select * from (select agent_name , Sum(Sale_value)  from chatgpt_sale_master where agent_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-AUG-2022' and last_day('01-AUG-2022') 
+group by agent_name order by Sum(Sale_value) desc ) where ROWNUM <= 5;"
+Top 5 Broker who sold the units in last 10 days by sale value,"select * from (select broker_name , Sum(Sale_value)  from chatgpt_sale_master where broker_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between sysdate -10  and sysdate
+group by broker_name order by Sum(Sale_value) desc ) where ROWNUM <= 5;"
+Top 5 Broker who sold the units in last Month by sale value,"select * from (select broker_name , Sum(Sale_value)  from chatgpt_sale_master where broker_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1))
+group by broker_name order by Sum(Sale_value) desc ) where ROWNUM <= 5;"
+Top 5 Broker who sold the units in Specifc Month by sale value,"select * from (select broker_name , Sum(Sale_value)  from chatgpt_sale_master where broker_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-AUG-2022' and last_day('01-AUG-2022') 
+group by broker_name order by Sum(Sale_value) desc ) where ROWNUM <= 5;"
+Top 5 Customer who brought the units in last 10 days,"select * from (select customer_name , count(*)  from chatgpt_sale_master where customer_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between sysdate -10  and sysdate
+group by customer_name order by count(*) desc ) where ROWNUM <= 5;"
+Top 5 Customer who brought the units in last Month,"select * from (select customer_name , count(*)  from chatgpt_sale_master where customer_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1))
+group by customer_name order by count(*) desc ) where ROWNUM <= 5;"
+Top 5 Customer who brought the units in Specifc Month,"select * from (select customer_name , count(*)  from chatgpt_sale_master where customer_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-AUG-2022' and last_day('01-AUG-2022') 
+group by customer_name order by count(*) desc ) where ROWNUM <= 5;"
+Top 5 Customer who brought the units in last 10 days by sale value,"select * from (select customer_name , Sum(Sale_value)  from chatgpt_sale_master where customer_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between sysdate -10  and sysdate
+group by customer_name order by Sum(Sale_value) desc ) where ROWNUM <= 5;"
+Top 5 Customer who brought the units in last Month by sale value,"select * from (select customer_name , Sum(Sale_value)  from chatgpt_sale_master where customer_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-'||to_char(last_day(add_months(sysdate,-1)),'MON-YYYY') and last_day(add_months(sysdate,-1))
+group by customer_name order by Sum(Sale_value) desc ) where ROWNUM <= 5;"
+Top 5 Customer who brought the units in Specifc Month by sale value,"select * from (select customer_name , Sum(Sale_value)  from chatgpt_sale_master where customer_name is not null
+and unit_status IN ('Booked','Reserved')
+and BLOCK_DATE between '01-AUG-2022' and last_day('01-AUG-2022') 
+group by customer_name order by Sum(Sale_value) desc ) where ROWNUM <= 5;"
+Mulitple Agent with same broker,"select agent_name,broker_name from chatgpt_sale_master where broker_name in (
+select broker_name from (select broker_name, count(*) from (
+select agent_name,broker_name from chatgpt_sale_master where broker_name is not null group by agent_name,broker_name ) group by broker_name having count(*) > 1))
+group by agent_name,broker_name order by broker_name"
+Mulitple Broker with same agent,"select broker_name,agent_name from chatgpt_sale_master where broker_name is not null and agent_name in (
+select agent_name from (select agent_name, count(*) from (
+select agent_name,broker_name from chatgpt_sale_master where broker_name is not null group by agent_name,broker_name ) group by agent_name having count(*) > 1))
+group by agent_name,broker_name order by agent_name"
+Customer brought more then 5 units,"select * from (select customer_name, count(*) from chatgpt_sale_master where  unit_status IN ('Booked','Reserved') group by customer_name order by count(*) desc ) where ROWNUM <= 5;"
