@@ -5,11 +5,7 @@ from contextlib import contextmanager
 
 app = Flask(__name__)
 
-app.config['ORACLE_USER'] = 'flexion'
-app.config['ORACLE_PASSWORD'] = 'flexion'
-app.config['ORACLE_DSN'] = cx_Oracle.makedsn('192.168.61.5', 1521, 'UAT')
-app.config['ORACLE_POOL_SIZE'] = 5
-app.config['ORACLE_POOL_NAME'] = 'mypool'
+# App configuration here for database
 
 db_conn = None
 
